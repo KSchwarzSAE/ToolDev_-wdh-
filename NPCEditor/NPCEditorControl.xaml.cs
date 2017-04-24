@@ -16,14 +16,20 @@ using System.Windows.Shapes;
 namespace NPCEditor
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NPCEditorControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NPCEditorControl : UserControl
     {
-        public MainWindow()
+
+        /// <summary>
+        /// Der zu bearbeitende NPC
+        /// </summary>
+        public NPC NPC { get; set; }
+
+        public NPCEditorControl()
         {
             InitializeComponent();
-            
         }
+
     }
 }

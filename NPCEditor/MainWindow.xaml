@@ -15,7 +15,17 @@
         </StatusBar>
         <TabControl>
             <TabItem Header="NPC">
-                <Label>Test</Label>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <local:NPCEditorControl Grid.Column="2"/>
+                    <!-- TODO Liste -->
+                </Grid>
             </TabItem>
             <TabItem Header="Klasse">
                 <Label>test</Label>
