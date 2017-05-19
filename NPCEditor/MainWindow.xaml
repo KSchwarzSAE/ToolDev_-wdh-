@@ -18,12 +18,23 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <local:NPCEditorControl Grid.Column="2"/>
+                    <ListBox x:Name="npcListBox" Grid.Column="0" SelectionChanged="npcListBox_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <local:NPCEditorControl x:Name="npcEditor" Grid.Column="1"/>
+                    <Button Grid.Row="2" Click="Button_Click">Add</Button>
                     <!-- TODO Liste -->
                 </Grid>
             </TabItem>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="NPCEditor.NPCEditorControl"
+﻿<UserControl x:Name="npcEditorControl" x:Class="NPCEditor.NPCEditorControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,10 +17,10 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Label VerticalAlignment="Center" Content="Name:" />
-        <TextBox Grid.Column="3" Margin="5" Text="{Binding Path=NPC.Name, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox IsEnabled="{Binding EditingEnabled, ElementName=npcEditorControl}" Grid.Column="3" Margin="5" Text="{Binding NPC.Name, ElementName=npcEditorControl, UpdateSourceTrigger=PropertyChanged}" />
         <Label VerticalAlignment="Center" Content="Class:" Grid.Row="1" />
-        <TextBox Grid.Row="1" Grid.Column="3" Margin="5" />
+        <TextBox IsEnabled="{Binding EditingEnabled, ElementName=npcEditorControl}" Grid.Row="1" Grid.Column="3" Margin="5" />
         <Label VerticalAlignment="Center" Content="Relation:" Grid.Row="2" />
-        <TextBox Grid.Row="2" Grid.Column="3" Margin="5" />
+        <Button IsEnabled="{Binding EditingEnabled, ElementName=npcEditorControl}" Grid.Row="2" Grid.Column="3" Margin="5" Content="test" Click="Button_Click"/>
     </Grid>
 </UserControl>

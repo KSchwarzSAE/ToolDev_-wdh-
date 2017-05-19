@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,8 +20,10 @@ namespace NPCEditor
     /// <summary>
     /// 
     /// </summary>
-    public class NPC
+    public class NPC : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Das Verhältnis des NPCs zum Spieler.
@@ -34,7 +38,26 @@ namespace NPCEditor
         /// <summary>
         /// Der Name des NPCs
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return m_name;
+            }
+            set
+            {
+                m_name = value;
+                RaisePropertyChangedEvent();
+            }
+        }
+
+        private string m_name;
+        
+        private void RaisePropertyChangedEvent([CallerMemberName] string _propName = "")
+        {
+            if(PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(_propName));
+        }
 
     }
 
